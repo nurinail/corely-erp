@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: #F0F0F0;
+  /* font-family: "Rubik", sans-serif; */
+  /* font-family: "Roboto", sans-serif; */
+}
+select {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
