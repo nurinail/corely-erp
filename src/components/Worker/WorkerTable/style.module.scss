@@ -1,0 +1,70 @@
+@import "../../../styles/mixin";
+
+.workerTable{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: auto;
+    table{
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+        thead{
+            position: sticky;
+            top: 0;
+            z-index: 3;
+            tr{
+                th{
+                    background-color: #ccc;
+                    padding: 1rem;
+                    font-size: 1.2rem;
+                    text-align: start;
+                }
+                .table_series{
+                    width: 4rem;
+                }
+            }
+        }
+        tbody{
+            overflow: auto;
+            tr{
+                td{
+                    padding: 1rem;
+                }
+                .table_series{
+                    width: 4rem;
+                }
+                .table_buttons{
+                    @include d-flex(flex-start,flex-start,row,1rem);
+                    &_item{
+                        padding: .4rem 1rem;
+                        background-color: red;
+                        color: white;
+                        border-radius: 1rem;
+                        transition: all .7s;
+                    }
+                    .table_buttons_item:last-child{
+                        background-color: rgb(10, 143, 10);
+                    }
+                    .table_buttons_item:hover{
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            tr:nth-child(even){
+                background-color: rgb(148, 171, 193);
+                color: white;
+            }
+            tr:nth-child(odd){
+                background-color: white;
+            }
+        }
+    }
+    &_message{
+        width: 100%;
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 2rem;
+        color: rgba($color: #000000, $alpha: .5);
+    }
+}

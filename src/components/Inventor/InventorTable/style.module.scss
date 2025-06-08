@@ -1,0 +1,70 @@
+@import "../../../styles/mixin";
+.inventorTable {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  background-color: white;
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    thead {
+      tr {
+        th {
+          text-align: start;
+          padding: 1rem;
+          background-color: #ccc;
+          position: sticky;
+          top: 0;
+          z-index: 4;
+        }
+        .table_series {
+          width: 5rem;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border: 1px solid #ccc;
+        td {
+          border-radius: 1rem;
+          text-align: start;
+          padding: 1rem;
+        }
+        .table_series {
+          width: 5rem;
+        }
+        .table_note {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .table_buttons {
+          @include d-flex(flex-start, flex-start, row, 1rem);
+          &_item {
+            padding: 0.4rem 1rem;
+            background-color: green;
+            color: white;
+            transition: all 0.7s;
+            border-radius: 1rem;
+          }
+          .table_buttons_item:last-child {
+            background-color: red;
+          }
+          .table_buttons_item:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+  &_message {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ccc;
+    margin-top: 1rem;
+  }
+}

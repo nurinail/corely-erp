@@ -1,4 +1,4 @@
-@import "../../styles/mixin";
+@import "../../../styles/mixin";
 .orderTable {
   @include d-flex(flex-start, flex-start, column, _);
   width: 100%;

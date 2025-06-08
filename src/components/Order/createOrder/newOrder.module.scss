@@ -1,4 +1,4 @@
-@import "../../styles/mixin";
+@import "../../../styles/mixin";
 .newOrderComp {
   @include d-flex(flex-start, flex-start, column, 1rem);
   width: 100%;

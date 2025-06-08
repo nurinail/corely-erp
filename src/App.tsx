@@ -9,10 +9,13 @@ import { IoIosPeople } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import Loading from "./components/Loading/Loading";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import type { RootState } from "./store/store";
 
 function App() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const isAdmin=useSelector((state:RootState)=>state.other.isAdmin)
   return (
     <div className="app">
       {isLoading ? <Loading /> : null}
@@ -55,9 +58,14 @@ function App() {
               icon: <FaWarehouse />,
             },
             {
-              label: "İşçilər",
-              key: "/workers",
-              icon: <IoIosPeople />,
+              label: isAdmin?"İşçilər":null,
+              key: isAdmin?"/createWorker":"",
+              icon: isAdmin?<IoIosPeople />:null,
+            },
+            {
+              label: isAdmin?"İşçilər Siyahı":null,
+              key: isAdmin?"/tableWorker":"",
+              icon: isAdmin?<IoIosPeople />:null,
             },
           ]}
         ></Menu>

@@ -1,6 +1,6 @@
-import { deleteOrder } from "../../store/slices/orderSlice";
-import type { RootState } from "../../store/store";
-import type { OrderType } from "../../types/types";
+import { deleteOrder } from "../../../store/slices/orderSlice";
+import type { RootState } from "../../../store/store";
+import type { OrderType } from "../../../types/types";
 import style from "./orderTable.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 

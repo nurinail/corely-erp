@@ -29,7 +29,7 @@ export interface HistoryInitialState{
 export interface WorkersType{
     id:number;
     desc:string;
-    date:string;//
+    date:string;// 
     name:string;//
     email:string;//
     number:number;//

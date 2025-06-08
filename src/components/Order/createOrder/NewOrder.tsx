@@ -2,22 +2,20 @@ import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import style from "./newOrder.module.scss";
 import { useForm } from "react-hook-form";
-import type { OrderType } from "../../types/types";
 import { useDispatch } from "react-redux";
-import { addOrder } from "../../store/slices/orderSlice";
+import { addOrder } from "../../../store/slices/orderSlice";
+import type { OrderType } from "../../../types/types";
 
 const NewOrder = () => {
   const dispatch = useDispatch();
-    const [isMessage,setIsMessage]=useState<boolean>(false);
-    const [ordersData, setOrdersData] = useState<OrderType[] | null>(null);
-    useEffect(() => {
+  const [isMessage, setIsMessage] = useState<boolean>(false);
+  const [ordersData, setOrdersData] = useState<OrderType[] | null>(null);
+  useEffect(() => {
     if (ordersData && ordersData.length === 0) {
       setIsMessage(true);
-    }
-    else if(ordersData===null){
-        setIsMessage(true);
-    }
-     else {
+    } else if (ordersData === null) {
+      setIsMessage(true);
+    } else {
       setIsMessage(false);
     }
   }, [ordersData]);
@@ -48,15 +46,17 @@ const NewOrder = () => {
       total: Number(data.count) * Number(data.prices),
       desc: `${data.product} satışı`,
     };
-    setOrdersData((prev) => prev ? [...prev, newOrder] : [newOrder]);
+    setOrdersData((prev) => (prev ? [...prev, newOrder] : [newOrder]));
     reset();
-};
-const addToData=()=>{
-    ordersData?ordersData.map((item)=>{
-        dispatch(addOrder(item));
-    }):null;
-    setOrdersData(null)
-}
+  };
+  const addToData = () => {
+    ordersData
+      ? ordersData.map((item) => {
+          dispatch(addOrder(item));
+        })
+      : null;
+    setOrdersData(null);
+  };
   return (
     <div className={style.newOrderComp}>
       <h2 className={style.newOrderComp_title}>Yeni Satış</h2>
@@ -68,7 +68,7 @@ const addToData=()=>{
         <div className={style.newOrderComp_form_item}>
           <label className={style.newOrderComp_form_item_label} htmlFor="">
             Məhsul adı
-          </label> 
+          </label>
           <input
             className={style.newOrderComp_form_item_input}
             type="text"
@@ -229,11 +229,16 @@ const addToData=()=>{
               ))}
           </tbody>
         </table>
-        {
-            isMessage?<p className={style.newOrderComp_table_container_message}>Satış yoxdur</p>:null
-        }
+        {isMessage ? (
+          <p className={style.newOrderComp_table_container_message}>
+            Satış yoxdur
+          </p>
+        ) : null}
       </div>
-      <button onClick={addToData} className={style.newOrderComp_table_container_save_btn}>
+      <button
+        onClick={addToData}
+        className={style.newOrderComp_table_container_save_btn}
+      >
         Saxla
       </button>
     </div>

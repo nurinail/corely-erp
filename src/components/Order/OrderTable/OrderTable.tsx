@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import style from "./orderTable.module.scss";
 import { useSelector } from "react-redux";
-import type { RootState } from "../../store/store";
-import type { OrderType } from "../../types/types";
+import type { RootState } from "../../../store/store";
+import type { OrderType } from "../../../types/types";
 import OrderTableItem from "./OrderTableItem";
 
 const OrderTable = () => {
