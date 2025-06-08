@@ -50,6 +50,11 @@ function App() {
               icon: <FaWarehouse />,
             },
             {
+              label: "Anbar listi",
+              key: "/inventortable",
+              icon: <FaWarehouse />,
+            },
+            {
               label: "İşçilər",
               key: "/workers",
               icon: <IoIosPeople />,

@@ -1,0 +1,57 @@
+@import "../../../styles/mixin";
+.pentingInventoryTable {
+  width: 100%;
+  height: 60%;
+  overflow: auto;
+  position: relative;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    thead {
+        position: sticky;
+        top: 0;
+        z-index: 3;
+      tr {
+        th {
+          background-color: #CCCCCC;
+          padding: 1rem;
+          font-size: 1.3rem;
+          text-align: start;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 1rem;
+          border: 1px solid #f4f4f4;
+          text-align: start;
+        }
+        td:last-child {
+          width: 10rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+  &_message{
+    text-align: center;
+    width: 100%;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    color: rgba($color: #000000, $alpha: .5);
+  }
+}
+.send_data_btn{
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: green;
+    color: white;
+    transition: all .7s;
+}
+.send_data_btn:hover{
+    transform: scale(1.1);
+}

@@ -1,6 +1,6 @@
 export interface InventoryType{
     id:number;
-    name:string;//
+    product:string;//
     category:string;//
     count:number;//
     prices:number;//
@@ -8,6 +8,7 @@ export interface InventoryType{
     date:string;//
     cashflow:string;//
     desc:string;
+    note:string;
 }
 export interface InventoryInitialState{
     inventory:InventoryType[];

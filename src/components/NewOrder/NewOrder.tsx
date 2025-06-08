@@ -68,7 +68,7 @@ const addToData=()=>{
         <div className={style.newOrderComp_form_item}>
           <label className={style.newOrderComp_form_item_label} htmlFor="">
             Məhsul adı
-          </label>
+          </label> 
           <input
             className={style.newOrderComp_form_item_input}
             type="text"
