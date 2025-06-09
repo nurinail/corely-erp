@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 import type { RootState } from "../../../store/store";
 import type { OrderType } from "../../../types/types";
 import OrderTableItem from "./OrderTableItem";
+import { useNavigate } from "react-router-dom";
 
 const OrderTable = () => {
+  const navigate=useNavigate();
   const orders = useSelector((state: RootState) => state.order.orders);
   const isAdmin=useSelector((state:RootState)=>state.other.isAdmin)
   const [isMessage,setIsMessage]=useState<boolean>(false);
@@ -19,7 +21,7 @@ const OrderTable = () => {
   return   <div className={style.orderTable}>
       <div className={style.orderTable_title}>
         <h2 className={style.orderTable_title_text}>Satışlar</h2>
-        <button className={style.orderTable_title_btn}>yeni satış</button>
+        <button type="submit" onClick={()=>navigate("/order")} className={style.orderTable_title_btn}>yeni satış</button>
       </div>
       <div className={style.orderTable_filter}>
         <input

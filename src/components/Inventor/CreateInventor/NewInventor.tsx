@@ -32,7 +32,7 @@ const NewInventor = () => {
       desc: `${data.product} alışı`,
     };
     setInventorData((prev) => [...(prev ?? []), newInventor]);
-    reset();
+    // reset();
   };
   return (
     <div className={style.newInventor_comp}>
@@ -172,7 +172,7 @@ const NewInventor = () => {
             })}
           ></textarea>
           <p>{errors.note?.message}</p>
-        </div>
+        </div> 
         <button className={style.newInventor_comp_form_btn} type="submit">
           Əlavə et
         </button>

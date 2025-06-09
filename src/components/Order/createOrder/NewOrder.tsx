@@ -5,8 +5,10 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addOrder } from "../../../store/slices/orderSlice";
 import type { OrderType } from "../../../types/types";
+import { useNavigate } from "react-router-dom";
 
 const NewOrder = () => {
+  const navigate=useNavigate();
   const dispatch = useDispatch();
   const [isMessage, setIsMessage] = useState<boolean>(false);
   const [ordersData, setOrdersData] = useState<OrderType[] | null>(null);
@@ -59,7 +61,10 @@ const NewOrder = () => {
   };
   return (
     <div className={style.newOrderComp}>
-      <h2 className={style.newOrderComp_title}>Yeni Satış</h2>
+      <div className={style.newOrderComp_title}>
+        <h2 className={style.newOrderComp_title_text}>Satışlar</h2>
+        <button type="submit" onClick={()=>navigate("/ordertable")} className={style.newOrderComp_title_btn}>satış cədvəli</button>
+      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={style.newOrderComp_form}

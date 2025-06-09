@@ -1,0 +1,11 @@
+:root{
+  --color:black;
+  --sidebar-background-color:#FFFFFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    --color:#ffffff;
+    --sidebar-background-color:#0F172A;
+  }
+}

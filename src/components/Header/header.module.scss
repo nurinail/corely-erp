@@ -1,6 +1,7 @@
 @import "../../styles/mixin";
 .headerComponent{
-    @include d-flex(center,space-between,row,_);
+    @include d-flex(center,flex-end,row,_);
+    width: 100%;
     &_logo{
         &_img{
             width: 20rem;
