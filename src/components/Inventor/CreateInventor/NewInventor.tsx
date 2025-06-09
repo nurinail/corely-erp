@@ -48,7 +48,7 @@ const NewInventor = () => {
           <input
             placeholder="daxil edin"
             type="text"
-            className={style.newInventor_comp_form_item_input}
+            className={classNames(style.newInventor_comp_form_item_input,errors.product&&style.active)}
             {...register("product", {
               required: {
                 value: true,
@@ -56,7 +56,7 @@ const NewInventor = () => {
               },
             })}
           />
-          <p>{errors.product?.message}</p>
+          <p className={style.error_message}>{errors.product?.message}</p>
         </div>
         <div className={style.newInventor_comp_form_item}>
           <label className={style.newInventor_comp_form_item_label} htmlFor="">
@@ -64,7 +64,7 @@ const NewInventor = () => {
           </label>
           <select
             className={classNames(
-              style.newInventor_comp_form_item_input,
+              classNames(style.newInventor_comp_form_item_input,errors.category&&style.active),
               style.newInventor_comp_form_item_select
             )}
             {...register("category", {
@@ -80,7 +80,7 @@ const NewInventor = () => {
             <option value="məişət">Məişət</option>
             <option value="elektron">Elektronika</option>
           </select>
-          <p>{errors.category?.message}</p>
+          <p className={style.error_message}>{errors.category?.message}</p>
         </div>
         <div className={style.newInventor_comp_form_item}>
           <label className={style.newInventor_comp_form_item_label} htmlFor="">
@@ -88,7 +88,7 @@ const NewInventor = () => {
           </label>
           <select
             className={classNames(
-              style.newInventor_comp_form_item_input,
+              classNames(style.newInventor_comp_form_item_input,errors.cashflow&&style.active),
               style.newInventor_comp_form_item_select
             )}
             {...register("cashflow", {
@@ -103,7 +103,7 @@ const NewInventor = () => {
             <option value="borc">borc</option>
             <option value="bank">bank hesabı</option>
           </select>
-          <p>{errors.cashflow?.message}</p>
+          <p className={style.error_message}>{errors.cashflow?.message}</p>
         </div>
         <div className={style.newInventor_comp_form_item}>
           <label className={style.newInventor_comp_form_item_label} htmlFor="">
@@ -111,8 +111,8 @@ const NewInventor = () => {
           </label>
           <input
             placeholder="daxil edin"
-            type="number"
-            className={style.newInventor_comp_form_item_input}
+            type="number" 
+            className={classNames(style.newInventor_comp_form_item_input,errors.count&&style.active)}
             {...register("count", {
               required: {
                 value: true,
@@ -120,7 +120,7 @@ const NewInventor = () => {
               },
             })}
           />
-          <p>{errors.count?.message}</p>
+          <p className={style.error_message}>{errors.count?.message}</p>
         </div>
         <div className={style.newInventor_comp_form_item}>
           <label className={style.newInventor_comp_form_item_label} htmlFor="">
@@ -129,7 +129,7 @@ const NewInventor = () => {
           <input
             placeholder="daxil edin"
             type="number"
-            className={style.newInventor_comp_form_item_input}
+            className={classNames(style.newInventor_comp_form_item_input,errors.prices&&style.active)}
             {...register("prices", {
               required: {
                 value: true,
@@ -137,6 +137,7 @@ const NewInventor = () => {
               },
             })}
           />
+          <p className={style.error_message}>{errors.prices?.message}</p>
         </div>
         <div className={style.newInventor_comp_form_item}>
           <label className={style.newInventor_comp_form_item_label} htmlFor="">
@@ -145,7 +146,7 @@ const NewInventor = () => {
           <input
             placeholder="daxil edin"
             type="date"
-            className={style.newInventor_comp_form_item_input}
+            className={classNames(style.newInventor_comp_form_item_input,errors.date&&style.active)}
             {...register("date", {
               required: {
                 value: true,
@@ -153,7 +154,7 @@ const NewInventor = () => {
               },
             })}
           />
-          <p>{errors.date?.message}</p>
+          <p className={style.error_message}>{errors.date?.message}</p>
         </div>
         <div className={style.newInventor_comp_form_item}>
           <label className={style.newInventor_comp_form_item_label} htmlFor="">
@@ -161,7 +162,7 @@ const NewInventor = () => {
           </label>
           <textarea
             className={classNames(
-              style.newInventor_comp_form_item_input,
+              classNames(style.newInventor_comp_form_item_input,errors.note&&style.active),
               style.newInventor_comp_form_item_textarea
             )}
             {...register("note", {
@@ -171,7 +172,7 @@ const NewInventor = () => {
               },
             })}
           ></textarea>
-          <p>{errors.note?.message}</p>
+          <p className={style.error_message}>{errors.note?.message}</p>
         </div> 
         <button className={style.newInventor_comp_form_btn} type="submit">
           Əlavə et

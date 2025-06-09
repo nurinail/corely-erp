@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import type { DepositeType, HistoryType } from "../../../types/types";
 import { useDispatch } from "react-redux";
 import { addDeposite } from "../../../store/slices/financeSlice";
-// import { addHistory } from "../../../store/slices/historySlice";
+import { addHistory } from "../../../store/slices/historySlice";
 
 type ModalType = {
   setIsModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -47,7 +47,7 @@ const CashInModal = ({ setIsModal }: ModalType) => {
       transaction: "Mədaxil",
       name: "Mədaxil",
     };
-    // dispatch(addHistory(historyDeposite));
+    dispatch(addHistory(historyDeposite));
     setTimeout(() => {
       setIsModal(false);
     }, 1500);

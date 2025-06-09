@@ -1,13 +1,13 @@
 @import "./styles/_mixin.scss";
 @import "./styles/variables";
 .app {
-  padding: 1rem;
+  // padding: 1rem;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 5fr;
   gap: 1rem;
   position: relative;
-  background: linear-gradient(to right, #1b1f22, #203a43, #2c5364);
+  background: linear-gradient(135deg, #1E2027, #2C303A);
 }
 .dashboard_menu {
   background-color: #12161c;
@@ -20,20 +20,12 @@
   .ant-menu-sub {
     .ant-menu-item-selected {
       background-color: #3a3f5f;
-      color: #fea81e;
+      color: #fea81e !important;
 
       .anticon {
         color: white !important;
+        color: #fea81e;
       }
-    }
-  }
-
-  .ant-menu-item-selected {
-    background-color: #3a3f5f;
-    color: #fea81e;
-
-    .anticon {
-      color: white !important;
     }
   }
 
@@ -46,6 +38,14 @@
   .ant-menu-item {
     color: white !important;
   }
+  .ant-menu-item-selected {
+     background-color: #3a3f5f;
+     color: #fea81e !important;
+     
+     .anticon {
+       color: #fea81e !important;
+     }
+   }
 }
 
 .dashboard_menu_logo {

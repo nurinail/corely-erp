@@ -26,7 +26,7 @@ const NewOrder = () => {
       prev ? prev.filter((item) => item.id !== id) : prev
     );
   };
-  const {
+  const { 
     register,
     handleSubmit,
     reset,
@@ -68,14 +68,13 @@ const NewOrder = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={style.newOrderComp_form}
-        action=""
       >
         <div className={style.newOrderComp_form_item}>
           <label className={style.newOrderComp_form_item_label} htmlFor="">
             Məhsul adı
           </label>
           <input
-            className={style.newOrderComp_form_item_input}
+            className={classNames(style.newOrderComp_form_item_input,errors.product&&style.active)}
             type="text"
             placeholder="daxil edin"
             {...register("product", {
@@ -84,14 +83,16 @@ const NewOrder = () => {
                 message: "Məhsul adı daxil edin!",
               },
             })}
+            
           />
+          <p className={style.error_message}>{errors.product?.message}</p>
         </div>
         <div className={style.newOrderComp_form_item}>
           <label className={style.newOrderComp_form_item_label} htmlFor="">
             Müştəri
           </label>
           <input
-            className={style.newOrderComp_form_item_input}
+            className={classNames(style.newOrderComp_form_item_input,errors.customer&&style.active)}
             type="text"
             {...register("customer", {
               required: {
@@ -101,13 +102,14 @@ const NewOrder = () => {
             })}
             placeholder="daxil edin"
           />
+                    <p className={style.error_message}>{errors.customer?.message}</p>
         </div>
         <div className={style.newOrderComp_form_item}>
           <label className={style.newOrderComp_form_item_label} htmlFor="">
             Miqdar
           </label>
           <input
-            className={style.newOrderComp_form_item_input}
+            className={classNames(style.newOrderComp_form_item_input,errors.count&&style.active)}
             type="number"
             placeholder="daxil edin"
             {...register("count", {
@@ -117,13 +119,14 @@ const NewOrder = () => {
               },
             })}
           />
+                    <p className={style.error_message}>{errors.count?.message}</p>
         </div>
         <div className={style.newOrderComp_form_item}>
           <label className={style.newOrderComp_form_item_label} htmlFor="">
             Qiymət
           </label>
           <input
-            className={style.newOrderComp_form_item_input}
+            className={classNames(style.newOrderComp_form_item_input,errors.prices&&style.active)}
             type="number"
             placeholder="daxil edin"
             {...register("prices", {
@@ -133,13 +136,14 @@ const NewOrder = () => {
               },
             })}
           />
+                      <p className={style.error_message}>{errors.prices?.message}</p>
         </div>
         <div className={style.newOrderComp_form_item}>
           <label className={style.newOrderComp_form_item_label} htmlFor="">
             Mədaxil forması
           </label>
           <select
-            className={style.newOrderComp_form_item_input}
+            className={classNames(style.newOrderComp_form_item_input,errors.cashflow&&style.active)}
             id=""
             {...register("cashflow", {
               required: {
@@ -155,13 +159,14 @@ const NewOrder = () => {
             <option value="nisyə">nisyə</option>
             <option value="bank">bank hesabı</option>
           </select>
+                    <p className={style.error_message}>{errors.cashflow?.message}</p>
         </div>
         <div className={style.newOrderComp_form_item}>
           <label className={style.newOrderComp_form_item_label} htmlFor="">
             Tarix
           </label>
           <input
-            className={style.newOrderComp_form_item_input}
+            className={classNames(style.newOrderComp_form_item_input,errors.date&&style.active)}
             type="date"
             {...register("date", {
               required: {
@@ -170,6 +175,7 @@ const NewOrder = () => {
               },
             })}
           />
+                    <p className={style.error_message}>{errors.date?.message}</p>
         </div>
         <div className={style.newOrderComp_form_item}>
           <label className={style.newOrderComp_form_item_label} htmlFor="">
@@ -177,7 +183,7 @@ const NewOrder = () => {
           </label>
           <textarea
             className={classNames(
-              style.newOrderComp_form_item_input,
+              classNames(style.newOrderComp_form_item_input,errors.note&&style.active),
               style.newOrderComp_form_item_textarea
             )}
             id=""
@@ -188,6 +194,7 @@ const NewOrder = () => {
               },
             })}
           ></textarea>
+                    <p className={style.error_message}>{errors.note?.message}</p>
         </div>
         <button type="submit" className={style.newOrderComp_form_btn}>
           Əlavə et
@@ -244,7 +251,7 @@ const NewOrder = () => {
         onClick={addToData}
         className={style.newOrderComp_table_container_save_btn}
       >
-        Saxla
+        Təsdiq et
       </button>
     </div>
   );

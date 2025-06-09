@@ -134,6 +134,9 @@ const FinanceInfo = () => {
             </tbody>
           </table>
         </div>
+          {
+            historyData.length===0?<p className={style.message}>Data yoxdur</p>:null
+          }
       </div>
     </div>
   );

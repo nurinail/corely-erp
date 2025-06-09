@@ -20,7 +20,7 @@ const OrderTable = () => {
 }, [orders]);
   return   <div className={style.orderTable}>
       <div className={style.orderTable_title}>
-        <h2 className={style.orderTable_title_text}>Satışlar</h2>
+        <h2 className={style.orderTable_title_text}>Satış Cədvəli</h2>
         <button type="submit" onClick={()=>navigate("/order")} className={style.orderTable_title_btn}>yeni satış</button>
       </div>
       <div className={style.orderTable_filter}>

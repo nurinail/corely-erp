@@ -1,38 +1,39 @@
 @import "../../../styles/mixin";
 .inventorTable {
   width: 100%;
-  height: 90vh;
+  height: 90vh; 
   overflow: auto;
   position: relative;
   background-color: transparent;
+  
   table {
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-    thead {
-      tr {
-        th {
-          text-align: start;
-          padding: 1rem;
-          background-color: #ccc;
-          position: sticky;
-          top: 0;
-          z-index: 4;
-        }
-        .table_series {
-          width: 5rem;
+      width: 100%;
+      border-collapse: collapse;
+      background-color: transparent;
+      overflow: auto;
+      thead {
+         background-color: #0dba8c;
+        position: sticky;
+        color: black;
+        top: 0;
+        tr {
+          th {
+            padding: 1rem;
+            text-align: start;
+            font-size: 1.6rem;
+          }
         }
       }
-    }
-    tbody {
-      tr {
-        border: 1px solid #ccc;
-        td {
-          border-radius: 1rem;
-          text-align: start;
-          padding: 1rem;
-        }
-        .table_series {
+      tbody {
+        overflow: auto;
+        color: white;
+        font-weight: bold;
+
+        tr {
+          td {
+            padding: .5rem;
+          }
+          .table_series {
           width: 5rem;
         }
         .table_note {
@@ -56,9 +57,17 @@
             transform: scale(1.1);
           }
         }
+         
+        }
+        tr:nth-child(odd){
+            background-color: rgba($color: #185444, $alpha: .1);
+          }
+          
+          tr:nth-child(even){
+            background-color: rgba($color: #2a7360, $alpha: .5);
+          }
       }
-    }
-  }
+    } 
   &_message {
     width: 100%;
     text-align: center;

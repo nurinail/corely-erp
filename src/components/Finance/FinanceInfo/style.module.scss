@@ -7,29 +7,36 @@
   width: 100%;
   height: 100%;
   padding: 1rem;
-  
+  // background: linear-gradient(to right, #fea81e, #6e4504)
   &_title {
-      @include d-flex(center, flex-start, row, 2rem);
-    background-color: white;
+    @include d-flex(center, flex-start, row, 2rem);
+    background-color: transparent;
+    border: 1px solid #fea81e;
+    border-radius: 2rem;
     width: 100%;
     padding: 1rem;
     &_text {
-        padding: 1rem;
-        border-radius: 1rem;
-        font-size: 2rem;
-        color: #2c3e50;
+      padding: 1rem;
+      border-radius: 1rem; 
+      font-size: 2rem;
+      background: linear-gradient(to right, #c8c4be, #d1c5b1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    &_button{
-        padding: 1rem;
-        transition: all .7s;
-        background-color: #0dba8c;
-        color: white;
-        border-radius: 1rem;
+    &_button {
+      padding: 1rem;
+      transition: all 0.7s;
+      border-radius: 1rem;
+      border: 1px solid green;
+      background: linear-gradient(to right, #0dba8c, green);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: bold;
     }
-    .financeComp_title_button:hover{
-        transform: scale(1.1);
-background-color: #0b8564;
-
+    .financeComp_title_button:hover {
+      transform: scale(1.1);
     }
   }
   &_info {
@@ -40,16 +47,27 @@ background-color: #0b8564;
       @include d-flex(center, center, column, 1rem);
       padding: 2rem 0;
       border-radius: 1rem;
-      background-color: white;
+      background-color: transparent;
+      border: 1px solid #fea81e;
       &_title {
         font-size: 1.8rem;
+        background: linear-gradient(to right, #f6f5f4, #8b857a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
       &_amount {
         font-size: 2.2rem;
-        color: rgb(6, 177, 6);
+        background: linear-gradient(to right, #31c820, #1b6d12);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
       .liability {
-        color: red;
+        background: linear-gradient(to right, #ce4619, #e10a0a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
     }
   }
@@ -59,16 +77,20 @@ background-color: #0b8564;
     @include d-flex(flex-start, flex-start, column, 2rem);
     &_title {
       font-size: 2rem;
-      color: #2c3e50;
+      background: linear-gradient(to right, #c8c4be, #d1c5b1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     &_filter {
       @include d-flex(center, flex-start, row, 1rem);
       &_select {
-        background-color: white;
+        background-color: transparent;
         padding: 0.5rem 1rem;
-        border: 1px solid #dddddd;
+        border: 1px solid #fea81e;
         border-radius: 0.5rem;
+        color: white;
       }
       &_btn {
         padding: 0.6rem 2rem;
@@ -82,17 +104,17 @@ background-color: #0b8564;
       max-height: 26rem;
       overflow: auto;
       position: relative;
+      border: 3px solid #fea81e;
+      border-radius: 1rem;
       .financeComp_history_table {
         width: 100%;
-        background-color: white;
+        background-color: transparent;
         padding: 1rem;
         border-collapse: collapse;
-         
 
         thead,
         tbody {
           tr {
-            border: 1px solid #ddd;
             th,
             td {
               text-align: start;
@@ -101,17 +123,34 @@ background-color: #0b8564;
             }
           }
           .thead_row {
-            background-color: #6a8eb1;
+            font-weight: 600;
             color: white;
             font-size: 1.5rem;
           }
         }
+        tbody {
+          color: white;
+          tr:nth-child(odd){
+            background-color: rgba($color: #fff, $alpha: .2);
+          }
+          
+          tr:nth-child(even){
+            background-color: rgba($color: #fff, $alpha: .1);
+          }
+        }
         thead {
           position: sticky;
+          background-color: #1f232b;
           top: 0;
           z-index: 2;
         }
       }
+    }
+    .message{
+      width: 100%;
+      font-size: 2.5rem;
+      color: rgba($color: #ffffff, $alpha: .5);
+      text-align: center;
     }
   }
 }

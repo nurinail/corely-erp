@@ -2,20 +2,32 @@
 .orderTable {
   @include d-flex(flex-start, flex-start, column, _);
   width: 100%;
-  padding: 1rem;
+  padding: 1rem; 
   overflow: auto;
   height: 100%;
   &_title {
     @include d-flex(center, flex-start, row, 1rem);
+      border: 1px solid #fea81e;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 2rem;
     &_text {
       font-size: 2.6rem;
+      background: linear-gradient(to right, #c8c4be, #d1c5b1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     &_btn {
-      padding: 0.3rem 1rem;
+      padding: 0.5rem 1rem;
       transition: all 0.7s;
       border-radius: 1rem;
-      background-color: rgb(0, 75, 128);
-      color: white;
+       border: 1px solid green;
+      background: linear-gradient(to right, #0dba8c, green);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: bold;
     }
     .orderTable_title_btn:hover {
       transform: scale(1.1);
@@ -28,6 +40,8 @@
       border: 1px solid #d7d7d7;
       padding: 1rem;
       border-radius: 1rem;
+      border: 1px solid #fea81e;
+      color: #c8c4be;
     }
   }
   .orderTable_container {
@@ -35,50 +49,57 @@
     height: 70vh;
     overflow: auto;
     position: relative;
+    
     table {
-      border-collapse: collapse;
       width: 100%;
-
-      thead,
-      tbody {
-        width: 100%;
+      border-collapse: collapse;
+      background-color: transparent;
+      overflow: auto;
+      thead {
+         background-color: #0dba8c;
+        position: sticky;
+        color: black;
+        top: 0;
         tr {
-          th,
-          td {
-            padding: 0.5rem 1rem;
-            text-align: start;
-          }
           th {
-            background-color: rgb(124, 194, 164);
-            color: white;
-            font-size: 1.5rem;
+            padding: 1rem;
+            text-align: start;
+            font-size: 1.6rem;
           }
         }
+      }
+      tbody {
+        overflow: auto;
+        color: white;
+        font-weight: bold;
+
         tr {
           td {
-            border: 1px solid #b3b3b3;
+            padding: .5rem;
             .orderTable_sect_item_button {
               padding: 0.3rem 1rem;
-              border: 1px solid red;
+              background-color: red;
+              color: white;
               border-radius: 1rem;
             }
           }
+         
         }
+        tr:nth-child(odd){
+            background-color: rgba($color: #185444, $alpha: .1);
+          }
+          
+          tr:nth-child(even){
+            background-color: rgba($color: #2a7360, $alpha: .5);
+          }
       }
-      tbody {
-        height: 10rem;
-      }
-      .orderTable_container_table_head {
-        position: sticky;
-        top: 0;
-        z-index: 2;
-      }
-    }
+    } 
     &_message {
       width: 100%;
       text-align: center;
+      margin-top: 1rem;
       font-size: 1.8rem;
-      color: rgba($color: #000000, $alpha: 0.5);
+      color: rgba($color: #fff, $alpha: 0.5);
     }
   }
 }

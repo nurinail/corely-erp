@@ -4,9 +4,17 @@
   height: 100%;
   width: 100%;
   background-color: transparent;
-  padding: 1rem;
+  padding: 1rem; 
   &_title {
     font-size: 2.5rem;
+    border: 1px solid #fea81e;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 2rem;
+    background: linear-gradient(to right, #c8c4be, #d1c5b1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
   }
   &_form {
     @include d-grid(1fr 1fr 1fr, 2rem);
@@ -15,15 +23,32 @@
       @include d-flex(flex-start, flex-start, column, 0.3rem);
       &_label {
         font-size: 1.3rem;
+        color: #fea81e;
+        font-weight: bold;
       }
       &_input {
         width: 100%;
-        border: 1px solid #dbdbdb;
+        border: 1px solid #fea81e;
         padding: 1rem;
         border-radius: 1rem;
+        background: linear-gradient(to right, #c8c4be, #d1c5b1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
       &_textarea{
         height: 6rem;
+      }
+      .error_message{
+        font-size: 1.1rem;
+          background: linear-gradient(to right, #ce4619, #e10a0a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: bold;
+      }
+      .active{
+        border: 1px solid #e10a0a;
       }
     }
     &_btn {

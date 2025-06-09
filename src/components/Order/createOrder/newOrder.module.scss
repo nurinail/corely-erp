@@ -5,19 +5,31 @@
   padding: 2.4rem 2rem;
   background-color: transparent;
   height: 100%;
-   &_title {
+  &_title {
     @include d-flex(center, flex-start, row, 1rem);
+    border: 1px solid #fea81e;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 2rem;
     &_text {
       font-size: 2.6rem;
+      background: linear-gradient(to right, #c8c4be, #d1c5b1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     &_btn {
-      padding: 0.3rem 1rem;
+      padding: 0.4rem 1rem;
       transition: all 0.7s;
       border-radius: 1rem;
-      background-color: rgb(0, 75, 128);
-      color: white;
+      border: 1px solid green;
+      background: linear-gradient(to right, #0dba8c, green);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: bold;
     }
-    .orderTable_title_btn:hover {
+    .newOrderComp_title_btn:hover {
       transform: scale(1.1);
     }
   }
@@ -26,19 +38,35 @@
     width: 100%;
     &_item {
       @include d-flex(flex-start, flex-start, column, 0.8rem);
-      // border: 1px solid red;
       &_label {
         font-size: 1.3rem;
+        color: #fea81e;
+        font-weight: bold;
       }
       &_input {
         width: 100%;
         padding: 1rem 2rem;
-        border: 1px solid #d9d9d9;
+        border: 1px solid #fea81e;
         border-radius: 1rem;
+        background: linear-gradient(to right, #c8c4be, #d1c5b1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
       &_textarea {
         height: 8rem;
         padding: 1rem;
+      }
+      .error_message{
+        font-size: 1.1rem;
+          background: linear-gradient(to right, #ce4619, #e10a0a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: bold;
+      }
+      .active{
+        border: 1px solid #e10a0a;
       }
     }
     &_btn {
@@ -56,38 +84,41 @@
   }
   &_table_container {
     width: 100%;
-    height: 18rem;
-    border: 1px solid #f9f9fb;
+    height: 13rem;
     overflow: auto;
+    // border: 1px solid #0dba8c;
     position: relative;
     table {
       width: 100%;
       border-collapse: collapse;
+      background-color: transparent;
       overflow: auto;
       thead {
-          background-color: #f9f9fb;
-          position: sticky;
-          top: 0;
-          tr {
-              th {
-                  padding: 1rem;
-                  text-align: start;
-                  font-size: 1.6rem;
-                }
-            }
-        }
-        tbody {
-          overflow: auto;
-          
-          tr {
-              td {
+         background-color: #0dba8c;
+        position: sticky;
+        color: black;
+        top: 0;
+        tr {
+          th {
             padding: 1rem;
-            border: 1px solid #e6e4e4;
-            .delete_btn{
-                background-color: red;
-                color: white;
-                padding: .3rem 1rem;
-                border-radius: 1rem;
+            text-align: start;
+            font-size: 1.6rem;
+          }
+        }
+      }
+      tbody {
+        overflow: auto;
+        color: white;
+        font-weight: bold;
+
+        tr {
+          td {
+            padding: .5rem;
+            .delete_btn {
+              background-color: red;
+              color: white;
+              padding: 0.3rem 1rem;
+              border-radius: 1rem;
             }
           }
           td:nth-child(9) {
@@ -97,25 +128,32 @@
             text-overflow: ellipsis;
           }
         }
+        tr:nth-child(odd){
+            background-color: rgba($color: #185444, $alpha: .1);
+          }
+          
+          tr:nth-child(even){
+            background-color: rgba($color: #2a7360, $alpha: .5);
+          }
       }
     }
-    &_message{
-        text-align: center;
-        font-size: 1.5rem;
-        margin-top: 2rem;
-        color: rgba($color: #000000, $alpha: .4);
+    &_message {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      color: rgba($color: #000000, $alpha: 0.4);
     }
-}
-.newOrderComp_table_container_save_btn{
+  }
+  .newOrderComp_table_container_save_btn {
     position: sticky;
     bottom: 0;
-    padding: .8rem 2rem;
+    padding: 0.8rem 2rem;
     background-color: #068340;
-    transition: all .7s;
+    transition: all 0.7s;
     color: white;
     border-radius: 1rem;
-}
-.newOrderComp_table_container_save_btn:hover{
+  }
+  .newOrderComp_table_container_save_btn:hover {
     transform: scale(1.1);
-}
+  }
 }

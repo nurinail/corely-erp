@@ -1,20 +1,21 @@
 @import "../../../styles/mixin";
 .pentingInventoryTable {
   width: 100%;
-  height: 31vh;
+  height: 27vh;
   overflow: auto;
   position: relative;
   table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
+    background-color: transparent;
     thead {
-        position: sticky;
-        top: 0;
-        z-index: 3;
+      position: sticky;
+      background-color: #0dba8c;
+      top: 0;
+      z-index: 3;
       tr {
         th {
-          background-color: #CCCCCC;
           padding: 1rem;
           font-size: 1.3rem;
           text-align: start;
@@ -22,10 +23,11 @@
       }
     }
     tbody {
+      color: white;
       tr {
         td {
           padding: 1rem;
-          border: 1px solid #f4f4f4;
+          // border: 1px solid #f4f4f4;
           text-align: start;
         }
         td:last-child {
@@ -35,23 +37,30 @@
           text-overflow: ellipsis;
         }
       }
+      tr:nth-child(odd) {
+        background-color: rgba($color: #185444, $alpha: 0.1);
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba($color: #2a7360, $alpha: 0.5);
+      }
     }
   }
-  &_message{
+  &_message {
     text-align: center;
     width: 100%;
     font-size: 1.4rem;
     margin-top: 1rem;
-    color: rgba($color: #000000, $alpha: .5);
+    color: rgba($color: #000000, $alpha: 0.5);
   }
 }
-.send_data_btn{
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: green;
-    color: white;
-    transition: all .7s;
+.send_data_btn {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: green;
+  color: white;
+  transition: all 0.7s;
 }
-.send_data_btn:hover{
-    transform: scale(1.1);
+.send_data_btn:hover {
+  transform: scale(1.1);
 }
