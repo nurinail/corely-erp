@@ -34,7 +34,7 @@ const CreateWorker = () => {
   }
  
   return <div className={style.createWorker}>
-    <h2>Yeni İşçi</h2>
+    <h2 className={style.createWorker_title}>Yeni İşçi</h2>
     <form onSubmit={handleSubmit(onSubmit)} className={style.createWorker_form} >
         <div className={style.createWorker_form_item}>
             <label className={style.createWorker_form_item_label} htmlFor="">Ad və Soyad</label>

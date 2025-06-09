@@ -11,6 +11,7 @@ const WorkerTable = () => {
 
 
   return <div className={style.workerTable}>
+    <h2 className={style.workerTable_title}>İşçilərin Siyahısı</h2>
     <table>
         <thead>
             <tr>
