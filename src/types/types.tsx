@@ -9,7 +9,7 @@ export interface InventoryType{
     cashflow:string;//
     desc:string;
     note:string;
-}
+} 
 export interface InventoryInitialState{
     inventory:InventoryType[];
 }
