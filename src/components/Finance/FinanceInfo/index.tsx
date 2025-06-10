@@ -24,18 +24,22 @@ const FinanceInfo = () => {
   return (
     <div className={style.financeComp}>
       {isModal ? <CashInModal setIsModal={setIsModal} /> : null}
-      {
-        isAdmin?<div className={style.financeComp_title}>
+      
+        <div className={style.financeComp_title}>
         <h2 className={style.financeComp_title_text}>Maliyyə Məlumatları</h2>
-        <button
+        {
+          isAdmin?<button
           type="button"
           onClick={() => setIsModal((prev) => !prev)}
           className={style.financeComp_title_button}
         >
           Hesabı artır
         </button>
-      </div>:null
-      }
+          :null
+        }
+        
+      </div>
+      
       <div className={style.financeComp_info}>
         <div className={style.financeComp_info_item}>
           <h3 className={style.financeComp_info_item_title}>Nağd pul</h3>

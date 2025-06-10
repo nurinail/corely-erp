@@ -5,7 +5,7 @@ import type { OtherInitialState } from '../../types/types'
 
 const initialState:OtherInitialState = {
   loading:false,
-  isAdmin:false,
+  isAdmin:true,
 }
 
 export const otherSlice = createSlice({
@@ -21,6 +21,6 @@ export const otherSlice = createSlice({
   },
 })
 
-export const { handleLoading} = otherSlice.actions
+export const { handleLoading,changeRol} = otherSlice.actions
 
 export default otherSlice.reducer

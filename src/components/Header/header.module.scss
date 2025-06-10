@@ -2,40 +2,36 @@
 .headerComponent{
     @include d-flex(center,flex-end,row,_);
     width: 100%;
-    &_logo{
-        &_img{
-            width: 20rem;
-            height: 5rem;
-            object-fit: cover;
-        }
-    }
+   
     &_role{
-        // border: 1px solid red;
         position: relative;
         @include d-flex(center,flex-end,row,1rem);
         &_log_out{
             &_btn{
-                font-size: 2.5rem;
+                font-size: 3rem;
                 transition: all .7s;
+                background-color: transparent;
+                color: red;
             }
             .headerComponent_role_log_out_btn:hover{
                 transform: scale(1.1);
                 color: #196e72;
             }
         }
-        &_item:nth-child(1){
+        .headerComponent_role_item_admin{
             font-size: 3rem;
             color: red;
-            
-            
+            margin-right: 4rem;
         }
-        .headerComponent_role_item:nth-child(3){
+        .headerComponent_role_item_last{
             border-radius: 50%;
             transition: all .7s;
             .headerComponent_role_item_btn{
                 display: flex;
                 align-items: center;
-                font-size: 2.5rem;
+                font-size: 3rem;
+                background-color: transparent;
+                color: white;
                 .headerComponent_role_item_btn_icon{
                     transition: all .7s;
                 }
@@ -70,6 +66,7 @@
 
           
         }
+        
        
     }
 }
