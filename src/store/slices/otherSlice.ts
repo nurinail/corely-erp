@@ -5,7 +5,7 @@ import type { OtherInitialState } from '../../types/types'
 
 const initialState:OtherInitialState = {
   loading:false,
-  isAdmin:true,
+  isAdmin:false,
 }
 
 export const otherSlice = createSlice({

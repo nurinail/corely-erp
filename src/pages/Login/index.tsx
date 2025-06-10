@@ -15,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
   const {
-    register,
+    register, 
     handleSubmit,
     reset,
     formState: { errors },
@@ -41,7 +41,7 @@ const Login = () => {
     <div className={style.loginSignUp}>
       <div className={style.loginSignUp}>
         <div className={style.loginSignUp_box}>
-          <img className={style.loginSignUp_box_img} src={logo} alt="logo" />
+          <h2 className={style.loginSignUp_box_logo}>Corely</h2>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className={style.loginSignUp_box_form}
@@ -90,12 +90,12 @@ const Login = () => {
               <p className={style.loginSignUp_box_form_item_message}>{errors.password?.message}</p>
             </div>
             <p className={style.isCorrectt}>
-              {isCorrect ? "username və ya şifrə səhvdir" : null}
+              {isCorrect ? "Şifrə səhvdir" : null}
             </p>
             <div className={style.loginSignUp_box_form_link}>
               <Link
                 className={style.loginSignUp_box_form_link_item}
-                to={"/login"}
+                to={"/signup"}
               >
                 Şifrəni unutmusan?
               </Link>

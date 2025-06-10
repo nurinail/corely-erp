@@ -53,7 +53,7 @@ const SignUp = () => {
     <div className={style.loginSignUp}>
       <div className={style.loginSignUp}>
         <div className={style.loginSignUp_box}>
-          <img className={style.loginSignUp_box_img} src={logo} alt="logo" />
+          <h2 className={style.loginSignUp_box_logo}>Corely</h2>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className={style.loginSignUp_box_form}
@@ -69,7 +69,7 @@ const SignUp = () => {
                 Yeni username adı
               </label>
               <input
-                className={style.loginSignUp_box_form_item_input}
+                className={classNames(style.loginSignUp_box_form_item_input,errors.username&&style.active_border)}
                 type="text"
                 id="username"
                 placeholder="username daxil edin"
@@ -80,7 +80,7 @@ const SignUp = () => {
                   },
                 })}
               />
-              <p style={{ color: "red" }}>{errors.username?.message}</p>
+              <p className={style.error_message}>{errors.username?.message}</p>
             </div>
             <div className={style.loginSignUp_box_form_item}>
               <label
@@ -90,14 +90,25 @@ const SignUp = () => {
                 Password
               </label>
               <input
-                className={style.loginSignUp_box_form_item_input}
-                type="password" 
+                className={classNames(style.loginSignUp_box_form_item_input,errors.password&&style.active_border)}
+                type="password"
                 placeholder="Password"
                 id="password"
                 {...register("password", {
                   required: {
                     value: true,
-                    message: "password daxil edin!",
+                    message: "Şifrəni daxil edin!",
+                  },
+                  minLength: {
+                    value: 8,
+                    message: "Şifrə ən azı 8 simvoldan ibarət olmalıdır!",
+                  },
+                  validate: {
+                    hasUpperCase: (value) =>
+                      /[A-Z]/.test(value) ||
+                      "Şifrə ən azı bir böyük hərf içerməlidir!",
+                    hasNumber: (value) =>
+                      /\d/.test(value) || "Şifrə ən azı bir rəqəm içerməlidir!",
                   },
                 })}
               />
@@ -111,7 +122,7 @@ const SignUp = () => {
                 Passwordu təkrar daxil edin
               </label>
               <input
-                className={style.loginSignUp_box_form_item_input}
+                className={classNames(style.loginSignUp_box_form_item_input,errors.repeatpassword&&style.active_border)}
                 type="password"
                 placeholder="Təkrar password"
                 id="password"

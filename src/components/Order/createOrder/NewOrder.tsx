@@ -49,7 +49,7 @@ const NewOrder = () => {
       desc: `${data.product} satışı`,
     };
     setOrdersData((prev) => (prev ? [...prev, newOrder] : [newOrder]));
-    reset();
+    // reset();
   };
   const addToData = () => {
     ordersData
