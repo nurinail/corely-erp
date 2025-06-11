@@ -18,7 +18,7 @@ export interface HistoryType{
     desc:string; 
     date:string;
     name:string;
-    method:string;
+    cashflow:string;
     total:number;
     transaction:string;
 }
@@ -27,7 +27,7 @@ export interface HistoryInitialState{
 }
 
 export interface WorkersType{
-    id:number;
+    id:number; 
     desc:string;
     date:string;// 
     name:string;//

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import type { InventoryType } from "../../../types/types";
+import type { HistoryType, InventoryType } from "../../../types/types";
 import classNames from "classnames";
 import style from "./newInventor.module.scss";
 import PentingInventoryTable from "../PendingInventoryTable";
+import { useDispatch } from "react-redux";
+import { addHistory } from "../../../store/slices/historySlice";
 const NewInventor = () => {
+  const dispatch=useDispatch();
   const [inventorData, setInventorData] = useState<InventoryType[] | null>(
     null
   );
@@ -31,8 +34,20 @@ const NewInventor = () => {
       total: total,
       desc: `${data.product} alışı`,
     };
+    const historyItem:HistoryType={
+      ...data,
+      id:inventorId,
+      desc:"Mal alışı",
+      transaction:data.cashflow,
+      total:Number(data.count) * Number(data.prices),
+      name:data.product
+      
+    }
     setInventorData((prev) => [...(prev ?? []), newInventor]);
+    dispatch(addHistory(historyItem));
     // reset();
+    
+
   };
   return (
     <div className={style.newInventor_comp}>

@@ -33,7 +33,7 @@ const CashInModal = ({ setIsModal }: ModalType) => {
     const hours = String(currentDate.getHours()).padStart(2, "0");
     const minutes = String(currentDate.getMinutes()).padStart(2, "0");
 
-    const formattedDate = `${day}-${month}-${year} ${hours}:${minutes}`;
+    const formattedDate = `${day}-${month}-${year}`;
     const newDeposite: DepositeType = {
       ...data,
       amount: Number(data.amount),
@@ -46,6 +46,7 @@ const CashInModal = ({ setIsModal }: ModalType) => {
       date: formattedDate,
       transaction: "Mədaxil",
       name: "Mədaxil",
+      cashflow:data.method,
     };
     dispatch(addHistory(historyDeposite));
     setTimeout(() => {

@@ -21,7 +21,7 @@ const AppRoute = () => {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/signup" element={<PageWrapper><SignUp /></PageWrapper>} />
-          <Route path="/login" element={<PageWrapper><Login /></PageWrapper>} />
+          <Route path="/" element={<PageWrapper><Login /></PageWrapper>} />
           <Route path="/order" element={<PageWrapper><NewOrder /></PageWrapper>} />
           <Route path="/ordertable" element={<PageWrapper><OrderTable /></PageWrapper>} />
           <Route path="/inventor" element={<PageWrapper><NewInventor /></PageWrapper>} />
@@ -29,7 +29,6 @@ const AppRoute = () => {
           <Route path="/inventortable" element={<PageWrapper><InventorTable /></PageWrapper>} />
           <Route path="/createWorker" element={<PageWrapper><CreateWorker /></PageWrapper>} />
           <Route path="/tableWorker" element={<PageWrapper><WorkerTable /></PageWrapper>} />
-          <Route path="/" element={<PageWrapper><div>Ana səhifə</div></PageWrapper>} />
           <Route path="*" element={<PageWrapper><NotFound/></PageWrapper>} />
         </Routes>
       </AnimatePresence>

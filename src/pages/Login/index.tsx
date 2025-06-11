@@ -28,7 +28,7 @@ const Login = () => {
       if (item.username === data.username && item.password === data.password) {
         dispatch(handleLoading(true));
         setTimeout(() => {
-          navigate("/history");
+          navigate("/finance");
           dispatch(handleLoading(false));
         }, 1000);
         setIsCorrect(false);

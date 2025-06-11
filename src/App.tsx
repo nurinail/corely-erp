@@ -16,11 +16,7 @@ function App() {
   const isLoading = useSelector((state: RootState) => state.other.loading);
   const isAdmin = useSelector((state: RootState) => state.other.isAdmin);
   const menuItems = [
-    {
-      label: "Ana Səhifə",
-      key: "/",
-      icon: <IoHomeSharp />,
-    },
+    
     {
       label: "Maliyyə",
       key: "/finance",

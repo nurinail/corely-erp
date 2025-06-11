@@ -27,7 +27,7 @@ const Header = () => {
         <li className={classNames(style.headerComponent_role_item,style.headerComponent_role_item_last)}>
           <button type="button" onClick={()=>setIsModal(prev=>!prev)} className={classNames(style.headerComponent_role_item_btn,style.headerComponent_role_item_btn_menu_icon)}><CiMenuKebab className={style.headerComponent_role_item_btn_icon}/></button>
           {isModal?<div className={style.headerComponent_role_item_modal}>
-            <button onClick={()=>{dispatch(changeRol(true));setIsModal(false)}} className={style.headerComponent_role_item_modal_btn}><MdAdminPanelSettings/> Admin</button>
+            <button onClick={()=>{dispatch(changeRol(true));setIsModal(false);navigate("/")}} className={style.headerComponent_role_item_modal_btn}><MdAdminPanelSettings/> Admin</button>
             <button onClick={()=>{dispatch(changeRol(false));setIsModal(false)}} className={style.headerComponent_role_item_modal_btn}><FaUser/> User</button>
           </div>:null}
           
