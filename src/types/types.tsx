@@ -14,7 +14,7 @@ export interface InventoryInitialState{
     inventory:InventoryType[];
 }
 export interface HistoryType{
-    id:number;
+    id:number; 
     desc:string; 
     date:string;
     name:string;

@@ -11,20 +11,20 @@
     background-color: transparent;
     thead {
       position: sticky;
-      background-color: #1f232b;
-      color: white;
+      background-color: var(--sidebar-background-color-first);
+      color: var(--color);
       top: 0;
       z-index: 3;
       tr {
         th {
           padding: 1rem;
-          font-size: 1.3rem;
+          font-size: 1.6rem;
           text-align: start;
         }
       }
     }
     tbody {
-      color: white;
+      color: var(--color);
       tr {
         td {
           padding: 1rem;
@@ -38,7 +38,7 @@
         }
       }
       tr:nth-child(odd) {
-            background-color: rgba($color: #fff, $alpha: 0.2);
+            background-color: rgba($color: #fff, $alpha: 0.9);
           }
 
           tr:nth-child(even) {

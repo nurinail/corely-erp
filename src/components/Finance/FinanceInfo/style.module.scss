@@ -10,7 +10,6 @@
   &_title {
     @include d-flex(center, flex-start, row, 2rem);
     background-color: transparent;
-    border: 1px solid var(--page-border-color);
     border-radius: 2rem;
     width: 100%;
     padding: 1rem;
@@ -50,11 +49,16 @@
       @include d-flex(center, center, column, 1rem);
       padding: 2rem 0;
       border-radius: 1rem;
-      background-color: transparent;
-      border: 1px solid #fea81e;
+      background-color: #f7f7f7;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      // border: 1px solid #fea81e;
       &_title {
         font-size: 1.8rem;
-        background: linear-gradient(to right, var(--page-font-color-first), var(--page-font-color-second));
+        background: linear-gradient(
+          to right,
+          var(--page-font-color-first),
+          var(--page-font-color-second)
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -80,7 +84,11 @@
     @include d-flex(flex-start, flex-start, column, 2rem);
     &_title {
       font-size: 2rem;
-        background: linear-gradient(to right, var(--page-font-color-first), var(--page-font-color-second));
+      background: linear-gradient(
+        to right,
+        var(--page-font-color-first),
+        var(--page-font-color-second)
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -93,7 +101,7 @@
         padding: 0.5rem 1rem;
         border: 1px solid var(--page-border-color);
         border-radius: 0.5rem;
-        color: white;
+        color: var(--color);
       }
       &_btn {
         padding: 0.6rem 2rem;
@@ -107,13 +115,13 @@
       max-height: 26rem;
       overflow: auto;
       position: relative;
+      padding-bottom: 1rem;
       border-radius: 1rem;
       .financeComp_history_table {
         width: 100%;
         background-color: transparent;
         padding: 1rem;
         border-collapse: collapse;
-
         thead,
         tbody {
           tr {
@@ -122,32 +130,34 @@
               text-align: start;
               padding: 1rem;
               font-size: 1.2rem;
+              color: var(--color);
+            }
+            th {
+              font-size: 2rem;
             }
           }
           .thead_row {
             font-weight: 600;
-            color: white;
-            font-size: 1.5rem;
+            color: var(--color);
           }
         }
         tbody {
-          color: white;
+          color: var(--color);
           tr:nth-child(odd) {
-            background-color: rgba($color: #fff, $alpha: 0.2);
+            background-color: rgba($color: #fff, $alpha: 0.9);
           }
-
           tr:nth-child(even) {
             background-color: rgba($color: #fff, $alpha: 0.1);
           }
         }
         thead {
           position: sticky;
-          background-color: #1f232b;
+          background-color: var(--sidebar-background-color-first);
           top: 0;
           z-index: 2;
         }
       }
-    } 
+    }
     .message {
       width: 100%;
       font-size: 2.5rem;

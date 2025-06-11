@@ -102,7 +102,7 @@ export const inventorSlice = createSlice({
       const inventorIndex = state.inventory.findIndex(
         (item) => item.id === action.payload.id
       );
-      state.inventory[inventorIndex] = action.payload;
+      state.inventory[inventorIndex] ={...state.inventory[inventorIndex],...action.payload} ;
     },
   },
 });

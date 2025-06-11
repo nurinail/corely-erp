@@ -31,7 +31,7 @@ export const workerSlice = createSlice({
       const workerIndex = state.workers.findIndex(
         (item) => item.id === action.payload.id
       );
-      state.workers[workerIndex] = action.payload;
+      state.workers[workerIndex] = {...state.workers[workerIndex],...action.payload};
     },
   },
 });

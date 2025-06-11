@@ -38,7 +38,7 @@ const PentingInventoryTable = ({
               <th>Ad</th>
               <th>Tarix</th>
               <th>Kateqoriya</th>
-              <th>Məxaric forması</th>
+              <th>Məxaric</th>
               <th>Miqdar</th>
               <th>Qiymət</th>
               <th>Cəmi</th>

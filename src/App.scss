@@ -9,43 +9,18 @@
   background: linear-gradient(135deg, var(--app-background-color-first), var(--app-background-color-first));
 }
 .dashboard_menu {
-  background: linear-gradient(135deg, var(--sidebar-background-color-first), var(--sidebar-background-color-second));
+  background: #FAFAFA;
+  margin-left: 3rem;
   border-radius: 1rem;
   height: 100%;
-  border: 1px solid var(--logo-color-second);
 }
 .dashboard_menu_item {
   background-color: transparent;
-
-  .ant-menu-sub {
-    .ant-menu-item-selected {
-      background-color: #3a3f5f;
-      color: #fea81e !important;
-
-      .anticon {
-        color: white !important;
-        color: #fea81e;
-      }
-    }
-  }
-
-  .anticon {
-    color: white !important;
-  }
-
-  .ant-menu-submenu-title,
-  .ant-menu-title-content,
-  .ant-menu-item {
-    color: var(--sidebar-color-first) !important;
-  }
-  
+  margin-top: 2rem;
   .ant-menu-item-selected {
-     background-color: #3a3f5f;
-     color: #fea81e ;
-     
-     .anticon {
-       color: #fea81e !important;
-     }
+     background-color: black;
+     color: white;
+    
    }
 }
 

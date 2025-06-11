@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import style from "./style.module.scss";
 import type { WorkersType } from "../../../types/types";
@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { addWorker } from "../../../store/slices/workerSlice";
 
 const CreateWorker = () => {
+   const [isModal, setIsModal] = useState<boolean>(false);
     const dispatch=useDispatch();
     const {
     register,
@@ -30,7 +31,7 @@ const CreateWorker = () => {
         desc:"İşə qəbul",
     }
     dispatch(addWorker(newWorker));
-    reset();
+    // reset();
   }
  
   return <div className={style.createWorker}>

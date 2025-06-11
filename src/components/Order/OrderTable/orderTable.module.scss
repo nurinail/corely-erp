@@ -7,13 +7,17 @@
   height: 100%;
   &_title {
     @include d-flex(center, flex-start, row, 1rem);
-      border: 1px solid #fea81e;
     width: 100%;
     padding: 1rem;
     border-radius: 2rem;
+    background-color: transparent;
     &_text {
       font-size: 2.6rem;
-      background: linear-gradient(to right, #c8c4be, #d1c5b1);
+       background: linear-gradient(
+        to right,
+        var(--page-font-color-first),
+        var(--page-font-color-second)
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -40,8 +44,8 @@
       border: 1px solid #d7d7d7;
       padding: 1rem;
       border-radius: 1rem;
-      border: 1px solid #fea81e;
-      color: #c8c4be;
+      border: 1px solid var(--page-border-color);
+      color: var(--color);
     }
   }
   .orderTable_container {
@@ -56,7 +60,7 @@
       background-color: transparent;
       overflow: auto;
       thead {
-         background-color: #0dba8c;
+         background-color: var(--sidebar-background-color-first);
         position: sticky;
         color: black;
         top: 0;
@@ -70,12 +74,11 @@
       }
       tbody {
         overflow: auto;
-        color: white;
-        font-weight: bold;
+        color: var(--color);
 
         tr {
           td {
-            padding: .5rem;
+            padding: 1rem;
             .orderTable_sect_item_button {
               padding: 0.3rem 1rem;
               background-color: red;
@@ -85,12 +88,11 @@
           }
          
         }
-        tr:nth-child(odd){
-            background-color: rgba($color: #185444, $alpha: .1);
+         tr:nth-child(odd) {
+            background-color: rgba($color: #fff, $alpha: 0.9);
           }
-          
-          tr:nth-child(even){
-            background-color: rgba($color: #2a7360, $alpha: .5);
+          tr:nth-child(even) {
+            background-color: rgba($color: #fff, $alpha: 0.1);
           }
       }
     } 

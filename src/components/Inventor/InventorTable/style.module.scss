@@ -8,7 +8,6 @@
   background-color: transparent;
   &_title{
     font-size: 2.5rem;
-    border: 1px solid var(--page-border-color);
     width: 100%;
     padding: 1rem;
     border-radius: 2rem;
@@ -24,13 +23,13 @@
   
   table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: collapse;  
       background-color: transparent;
       overflow: auto;
       thead {
-         background-color: #0dba8c;
+         background-color: var(--sidebar-background-color-first);
         position: sticky;
-        color: black;
+        color: var(--color);
         top: 0;
         tr {
           th {
@@ -42,12 +41,11 @@
       }
       tbody {
         overflow: auto;
-        color: white;
-        font-weight: bold;
+        color: var(--color);
 
         tr {
           td {
-            padding: .5rem;
+            padding: 1rem;
           }
           .table_series {
           width: 5rem;
@@ -76,7 +74,7 @@
          
         }
        tr:nth-child(odd) {
-            background-color: rgba($color: #fff, $alpha: 0.2);
+            background-color: rgba($color: #fff, $alpha: 0.9);
           }
 
           tr:nth-child(even) {

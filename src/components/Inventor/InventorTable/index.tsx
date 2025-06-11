@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import style from "./style.module.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../../store/store";
 import ChangeModal from "../ChangeModal";
 import type { InventoryType } from "../../../types/types";
+import { deleteInventor } from "../../../store/slices/inventorSlice";
 
 const InventorTable = () => {
   const isAdmin = useSelector((state: RootState) => state.other.isAdmin);
+  const dispatch=useDispatch();
   const [isMessage, setIsMessage] = useState<boolean>(true);
   const [isModal, setIsModal] = useState<boolean>(false);
   const [changeValue, setChangeValue] = useState<InventoryType>();
@@ -27,7 +29,7 @@ const InventorTable = () => {
 };
   return (
     <div className={style.inventorTable}>
-      {isModal ? <ChangeModal data={changeValue}/> : null}
+      {isModal ? <ChangeModal setIsModal={setIsModal} data={changeValue}/> : null}
       <h2 className={style.inventorTable_title}>Məhsul Siyahısı</h2>
       <table>
         <thead>
@@ -61,13 +63,13 @@ const InventorTable = () => {
                 </td>
                 {isAdmin ? (
                   <td className={style.table_buttons}>
-                    <button className={style.table_buttons_item}>Sil</button>
                     <button
                       onClick={() => handleChange(item.id)}
                       className={style.table_buttons_item}
                     >
                       Dəyiş
                     </button>
+                    <button onClick={()=>dispatch(deleteInventor(item.id))} className={style.table_buttons_item}>Sil</button>
                   </td>
                 ) : null}
               </tr>
