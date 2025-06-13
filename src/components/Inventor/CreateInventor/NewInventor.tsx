@@ -6,11 +6,13 @@ import style from "./newInventor.module.scss";
 import PentingInventoryTable from "../PendingInventoryTable";
 import { useDispatch } from "react-redux";
 import { addHistory } from "../../../store/slices/historySlice";
+import { handleCalculate } from "../../../store/slices/financeSlice";
 const NewInventor = () => {
   const dispatch=useDispatch();
   const [inventorData, setInventorData] = useState<InventoryType[] | null>(
     null
   );
+  
   const {
     register,
     handleSubmit,
@@ -19,7 +21,7 @@ const NewInventor = () => {
   } = useForm<InventoryType>({
     mode: "onSubmit",
     defaultValues: {
-      cashflow: "",
+      method: "",
       category: "",
     },
   });
@@ -38,14 +40,18 @@ const NewInventor = () => {
       ...data,
       id:inventorId,
       desc:"Mal alışı",
-      transaction:data.cashflow,
+      transaction:data.method,
       total:Number(data.count) * Number(data.prices),
       name:data.product
       
     }
     setInventorData((prev) => [...(prev ?? []), newInventor]);
     dispatch(addHistory(historyItem));
-    // reset();
+    dispatch(handleCalculate({
+      amount:total,
+      method:data.method
+    }))
+    reset();
     
 
   };
@@ -103,10 +109,10 @@ const NewInventor = () => {
           </label>
           <select
             className={classNames(
-              classNames(style.newInventor_comp_form_item_input,errors.cashflow&&style.active),
+              classNames(style.newInventor_comp_form_item_input,errors.method&&style.active),
               style.newInventor_comp_form_item_select
             )}
-            {...register("cashflow", {
+            {...register("method", {
               required: {
                 value: true,
                 message: "Məxaric forması seçin!",
@@ -114,11 +120,11 @@ const NewInventor = () => {
             })}
           >
             <option value="">---</option>
-            <option value="nağd">nağd</option>
-            <option value="borc">borc</option>
-            <option value="bank">bank hesabı</option>
+            <option value="cash-out">nağd</option>
+            <option value="loan-in">borc</option>
+            <option value="bank-out">bank hesabı</option>
           </select>
-          <p className={style.error_message}>{errors.cashflow?.message}</p>
+          <p className={style.error_message}>{errors.method?.message}</p>
         </div>
         <div className={style.newInventor_comp_form_item}>
           <label className={style.newInventor_comp_form_item_label} htmlFor="">

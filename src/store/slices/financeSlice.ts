@@ -21,7 +21,7 @@ export const financeSlice = createSlice({
         if(action.payload.method==="cash-in"){
             state.cashAmount+=action.payload.amount;
             state.income+=action.payload.amount;
-            return
+            return 
         }
         if(action.payload.method==="bank-in"){
             state.bankAmount+=action.payload.amount;
@@ -59,7 +59,7 @@ export const financeSlice = createSlice({
         }
     }
   },
-});
+}); 
 
 export const {handleCalculate,addDeposite} = financeSlice.actions;
 

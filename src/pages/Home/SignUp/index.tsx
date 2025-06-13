@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import style from "./style.module.scss";
-import logo from "../../../assets/images/corelyLogo.png";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
@@ -146,7 +145,7 @@ const SignUp = () => {
                 Belə hesab mövcuddur
               </p>
             ) : null}
-            <Link className={style.have_account} to={"/login"}>
+            <Link className={style.have_account} to={"/"}>
               Hesabın var?
             </Link>
             <button

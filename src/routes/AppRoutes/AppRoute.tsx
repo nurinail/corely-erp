@@ -12,6 +12,7 @@ import FinanceInfo from "../../components/Finance/FinanceInfo";
 import Login from "../../pages/Login";
 import SignUp from "../../pages/Home/SignUp";
 import NotFound from "../../pages/NotFound";
+import AdminLogin from "../../pages/AdminLogin";
 
 const AppRoute = () => {
   const location = useLocation();
@@ -20,13 +21,14 @@ const AppRoute = () => {
     <div className={style.appRoute}>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/signup" element={<PageWrapper><SignUp /></PageWrapper>} />
-          <Route path="/" element={<PageWrapper><Login /></PageWrapper>} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={<Login />}/>
           <Route path="/order" element={<PageWrapper><NewOrder /></PageWrapper>} />
           <Route path="/ordertable" element={<PageWrapper><OrderTable /></PageWrapper>} />
           <Route path="/inventor" element={<PageWrapper><NewInventor /></PageWrapper>} />
           <Route path="/finance" element={<PageWrapper><FinanceInfo /></PageWrapper>} />
           <Route path="/inventortable" element={<PageWrapper><InventorTable /></PageWrapper>} />
+          <Route path="/admin" element={<PageWrapper><AdminLogin /></PageWrapper>} />
           <Route path="/createWorker" element={<PageWrapper><CreateWorker /></PageWrapper>} />
           <Route path="/tableWorker" element={<PageWrapper><WorkerTable /></PageWrapper>} />
           <Route path="*" element={<PageWrapper><NotFound/></PageWrapper>} />

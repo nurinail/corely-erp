@@ -6,7 +6,7 @@ export interface InventoryType{
     prices:number;//
     total:number;
     date:string;//
-    cashflow:string;//
+    method:string;//
     desc:string;
     note:string;
 } 
@@ -18,7 +18,7 @@ export interface HistoryType{
     desc:string; 
     date:string;
     name:string;
-    cashflow:string;
+    method:string;
     total:number;
     transaction:string;
 }
@@ -46,7 +46,7 @@ export interface OrderType{
     id:number;
     customer:string;//
     product:string;//
-    cashflow:string;//
+    method:string;//
     desc:string;
     date:string;//
     total:number;

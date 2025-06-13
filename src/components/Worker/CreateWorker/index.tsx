@@ -31,7 +31,7 @@ const CreateWorker = () => {
         desc:"İşə qəbul",
     }
     dispatch(addWorker(newWorker));
-    // reset();
+    reset();
   }
  
   return <div className={style.createWorker}>

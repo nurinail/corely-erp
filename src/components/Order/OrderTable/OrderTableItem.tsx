@@ -17,9 +17,9 @@ const OrderTableItem = ({ order, index }: OrderPrompt) => {
       <td>{index}</td>
       <td>{order.id}</td>
       <td>{order.product}</td>
-      <td>{order.cashflow}</td>
+      <td>{order.method}</td>
       <td>{order.date}</td>
-      <td>{order.total}</td>
+      <td>{order.total} AZN</td>
      
       {isAdmin?<td>
         <button

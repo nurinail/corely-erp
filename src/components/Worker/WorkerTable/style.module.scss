@@ -74,13 +74,13 @@
             }
           }
       }
-      &_message{
-          width: 100%;
-          text-align: center;
-          margin-top: 2rem;
-          font-size: 2rem;
-          color: rgba($color: #000000, $alpha: .5);
-      }
-
-  }
+      
+    }
+    &_message{
+        width: 100%;
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 2rem;
+        color: rgba($color: #000000, $alpha: .5);
+    }
 }

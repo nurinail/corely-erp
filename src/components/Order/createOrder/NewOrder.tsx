@@ -2,15 +2,27 @@ import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import style from "./newOrder.module.scss";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addOrder } from "../../../store/slices/orderSlice";
 import type { OrderType } from "../../../types/types";
 import { useNavigate } from "react-router-dom";
+import type { RootState } from "../../../store/store";
+import { handleCalculate } from "../../../store/slices/financeSlice";
+import { addHistory } from "../../../store/slices/historySlice";
 
 const NewOrder = () => {
   const navigate=useNavigate();
   const dispatch = useDispatch();
   const [isMessage, setIsMessage] = useState<boolean>(false);
+    const [isMessageboolean, setIsMessageboolean] = useState<boolean>(false);
+ 
+  const [messageValue, setMessageValue] = useState<string>(
+    "Satış miqdarı cari miqdardan az ola bilməz!"
+  );
+    const inventors = useSelector(
+    (state: RootState) => state.inventor.inventory
+  );
+
   const [ordersData, setOrdersData] = useState<OrderType[] | null>(null);
   useEffect(() => {
     if (ordersData && ordersData.length === 0) {
@@ -35,7 +47,7 @@ const NewOrder = () => {
     mode: "onSubmit",
     defaultValues: {
       customer: "",
-      cashflow: "",
+      method: "",
     },
   });
   const onSubmit = (data: Omit<OrderType, "id" | "total" | "desc">) => {
@@ -48,8 +60,28 @@ const NewOrder = () => {
       total: Number(data.count) * Number(data.prices),
       desc: `${data.product} satışı`,
     };
-    setOrdersData((prev) => (prev ? [...prev, newOrder] : [newOrder]));
-    // reset();
+    inventors.map((item) => {
+      if (item.product === data.product && data.count > item.count) {
+        setIsMessageboolean(true);
+      } else{
+        setOrdersData((prev) => (prev ? [...prev, newOrder] : [newOrder]));
+        reset();
+        setIsMessageboolean(false);
+        dispatch(addHistory({
+          id:orderId,
+          desc:"Məhsul Satışı",
+          date:data.date,
+          name:data.product,
+          method:data.method,
+          total:Number(data.count) * Number(data.prices),
+          transaction:"Məhsul satışı"
+        }))
+        dispatch(handleCalculate({
+          amount:Number(data.count) * Number(data.prices),
+          method:data.method,
+        }))
+      }
+    })
   };
   const addToData = () => {
     ordersData
@@ -73,10 +105,8 @@ const NewOrder = () => {
           <label className={style.newOrderComp_form_item_label} htmlFor="">
             Məhsul adı
           </label>
-          <input
+          <select
             className={classNames(style.newOrderComp_form_item_input,errors.product&&style.active)}
-            type="text"
-            placeholder="daxil edin"
             {...register("product", {
               required: {
                 value: true,
@@ -84,7 +114,14 @@ const NewOrder = () => {
               },
             })}
             
-          />
+          >
+            <option defaultValue="" value="">---</option>
+            {
+              inventors.map((item)=>(
+                <option value={item.product}>{item.product}</option>
+              ))
+            }
+          </select>
           <p className={style.error_message}>{errors.product?.message}</p>
         </div>
         <div className={style.newOrderComp_form_item}>
@@ -143,9 +180,9 @@ const NewOrder = () => {
             Mədaxil forması
           </label>
           <select
-            className={classNames(style.newOrderComp_form_item_input,errors.cashflow&&style.active)}
+            className={classNames(style.newOrderComp_form_item_input,errors.method&&style.active)}
             id=""
-            {...register("cashflow", {
+            {...register("method", {
               required: {
                 value: true,
                 message: "Mədaxil formanı seçin!",
@@ -155,11 +192,11 @@ const NewOrder = () => {
             <option value="" disabled>
               ---
             </option>
-            <option value="nağd">nağd</option>
-            <option value="nisyə">nisyə</option>
-            <option value="bank">bank hesabı</option>
+            <option value="cash-in">nağd</option>
+            <option value="debitor-in">nisyə</option>
+            <option value="bank-in">bank hesabı</option>
           </select>
-                    <p className={style.error_message}>{errors.cashflow?.message}</p>
+                    <p className={style.error_message}>{errors.method?.message}</p>
         </div>
         <div className={style.newOrderComp_form_item}>
           <label className={style.newOrderComp_form_item_label} htmlFor="">
@@ -226,7 +263,7 @@ const NewOrder = () => {
                   <td>{item.count}</td>
                   <td>{item.prices}</td>
                   <td>{item.total} AZN</td>
-                  <td>{item.cashflow}</td>
+                  <td>{item.method}</td>
                   <td>{item.date}</td>
                   <td title={item.note}>{item.note}</td>
                   <td>
@@ -247,6 +284,9 @@ const NewOrder = () => {
           </p>
         ) : null}
       </div>
+      {
+        isMessageboolean?<p style={{color:"red",position:"absolute",top:"64%",fontSize:"16px",left:"28%"}}>{messageValue}</p>:null
+      }
       <button
         onClick={addToData}
         className={style.newOrderComp_table_container_save_btn}

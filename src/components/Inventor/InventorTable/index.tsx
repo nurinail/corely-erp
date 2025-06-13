@@ -53,7 +53,7 @@ const InventorTable = () => {
                 <td className={style.table_series}>{index + 1}</td>
                 <td>{item.id}</td>
                 <td>{item.category}</td>
-                <td>{item.cashflow}</td>
+                <td>{item.method}</td>
                 <td>{item.date}</td>
                 <td>{item.count}</td>
                 <td>{item.prices}</td>

@@ -40,9 +40,9 @@ const OrderTable = () => {
           <option value="" defaultValue="" disabled>
             --
           </option>
-          <option value="nağd">nağd</option>
-          <option value="debitor">nisyə</option>
-          <option value="bank">bank</option>
+          <option value="cash-in">nağd</option>
+          <option value="debitor-in">nisyə</option>
+          <option value="bank-in">bank</option>
         </select>
       </div>
       <div className={style.orderTable_container}>

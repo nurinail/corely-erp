@@ -10,6 +10,7 @@ const FinanceInfo = () => {
   const [typeFilter, setTypeFilter] = useState<string>("");
   const [dateFilter, setDateFilter] = useState<string>("");
   const [amountFilter, setAmountFilter] = useState<string>("");
+  const [isMessage,setIsMessage]=useState<boolean>(false)
 
   const isAdmin = useSelector((state: RootState) => state.other.isAdmin);
   const cashAmount = useSelector((state: RootState) => state.finance.cashAmount);
@@ -21,9 +22,9 @@ const FinanceInfo = () => {
   const filteredHistory = historyData
     ?.filter((item) => {
       if (item.desc === "Yeni İşçi qəbulu") return false;
-      if (typeFilter === "nağd" && !(item.cashflow === "cash-in" || item.cashflow === "cash-out")) return false;
-      if (typeFilter === "debitor" && item.cashflow !== "debitor-in") return false;
-      if (typeFilter === "liability" && item.cashflow !== "loan-in") return false;
+      if (typeFilter === "cash-in" && !(item.method === "cash-in" || item.method === "cash-out")) return false;
+      if (typeFilter === "debitor-in" && item.method !== "debitor-in") return false;
+      if (typeFilter === "loan-in" && item.method !== "loan-in") return false;
       return true;
     })
     ?.sort((a, b) => {
@@ -53,7 +54,7 @@ const FinanceInfo = () => {
 
       <div className={style.financeComp_info}>
         <div className={style.financeComp_info_item}>
-          <h3 className={style.financeComp_info_item_title}>Nağd pul</h3>
+          <h3 className={style.financeComp_info_item_title}>Nağd</h3>
           <h2 className={style.financeComp_info_item_amount}>{cashAmount} AZN</h2>
         </div>
         <div className={style.financeComp_info_item}>
@@ -80,9 +81,9 @@ const FinanceInfo = () => {
             onChange={(e) => setTypeFilter(e.target.value)}
           >
             <option value="">Hamısı</option>
-            <option value="nağd">Nağd pul</option>
-            <option value="debitor">Nisyə</option>
-            <option value="liability">Borc</option>
+            <option value="cash-in">cash-in pul</option>
+            <option value="debitor-in">Nisyə</option>
+            <option value="loan-in">Borc</option>
           </select>
 
           <select
@@ -117,7 +118,7 @@ const FinanceInfo = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredHistory && filteredHistory.length > 0 ? (
+              {filteredHistory &&  
                 filteredHistory.map((item) => (
                   <tr key={item.id}>
                     <td>{item.date}</td>
@@ -126,13 +127,11 @@ const FinanceInfo = () => {
                     <td>{item.total} AZN</td>
                   </tr>
                 ))
-              ) : (
-                <tr>
-                  <td colSpan={4} className={style.message}>Data yoxdur</td>
-                </tr>
-              )}
+             
+                }
             </tbody>
           </table>
+          {filteredHistory.length===0?<p className={style.message}>Data yoxdur</p>:null}
         </div>
       </div>
     </div>

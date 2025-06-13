@@ -46,7 +46,7 @@ const CashInModal = ({ setIsModal }: ModalType) => {
       date: formattedDate,
       transaction: "Mədaxil",
       name: "Mədaxil",
-      cashflow:data.method,
+      method:data.method,
     };
     dispatch(addHistory(historyDeposite));
     setTimeout(() => {

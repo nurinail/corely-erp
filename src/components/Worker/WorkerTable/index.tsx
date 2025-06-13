@@ -74,9 +74,9 @@ const WorkerTable = () => {
           </tbody>
         </table>
       </div>
-      {workerData.length === 0 ? (
+      {workerData.length === 0 ? 
         <p className={style.workerTable_message}>Məlumat Yoxdur</p>
-      ) : null}
+       : null}
     </div>
   );
 };
