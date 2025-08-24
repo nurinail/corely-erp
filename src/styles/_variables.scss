@@ -11,19 +11,3 @@
   --page-font-color-second: #3a4d7c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color: #ffffff;
-    --sidebar-background-color-first: #1e2027;
-    --sidebar-background-color-second: #3a4d7c;
-    --app-background-color-first: #1e1e2f;
-    --app-background-color-second: #2a2e3b;
-    --sidebar-color-first: white;
-    --sidebar-color-second: white;
-    --logo-color-first: #fea81e;
-    --logo-color-second: #6e4504;
-    --page-border-color: #fea81e;
-    --page-font-color-first: #c8c4be;
-    --page-font-color-second: #d1c5b1;
-  }
-}
